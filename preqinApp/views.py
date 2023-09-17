@@ -15,7 +15,7 @@ def generate_random_float(request):
             # Check if the string has already been entered and generate values only if it's a new string
             if not RandomFloatGenerator.objects.filter(input_string=input_string).exists():
                 num_generated = 0  # Track the number of generated values
-                while num_generated < 5:  # Generate 500 values
+                while num_generated < 500:  # Generate 500 values
                     random_value = random.uniform(0, 1)
                     RandomFloatGenerator.objects.create(input_string=input_string, random_value=random_value)
                     num_generated += 1

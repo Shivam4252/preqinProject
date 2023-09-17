@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Random Float</title>
+</head>
+<body>
+    <h1>Generate Random Float</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Generate">
+    </form>
+    
+    {% if form.is_bound %}
+        <h2>Input String:</h2>
+        <p>{{ form.input_string.value }}</p>
+        <h2>Random Float Values:</h2>
+        <ul>
+            {% for random_float in random_floats %}
+                <li>{{ random_float.random_value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
